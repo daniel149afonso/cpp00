@@ -2,6 +2,7 @@
 #include <string>
 //using namespace std; not allowed
 
+//CHARACTER CLASS
 class Character {
 	public:
 	int	age;
@@ -11,6 +12,7 @@ class Character {
 	}
 };
 
+//BOOK CLASS
 class Book {
 	public:
 	std::string title;
@@ -20,7 +22,17 @@ class Book {
 	void introduce(std::string title, std::string ath, int year) {
 		std::cout << title << ", " << ath << ", " << year << ".\n";
 	}
+	void sayHi();
+	int booksSold(int nbr);
 };
+
+void	Book::sayHi(void) {
+	std::cout << "Hello World\n";
+}
+
+int		Book::booksSold(int nbr) {
+	return (nbr * 3);
+}
 
 int	main(void)
 {
@@ -35,11 +47,14 @@ int	main(void)
 	book1.author = "JK Rolling";
 	book1.year = 1988;
 	book1.introduce(book1.title, book1.author, book1.year);
+	book1.sayHi();
+	std::cout << book1.booksSold(3000) << ".\n";
 	//Book 2
 	Book book2;
 	book2.title = "Game of thrones";
 	book2.author = "George Martin";
 	book2.year = 1996;
 	book2.introduce(book2.title, book2.author, book2.year);
+	book2.sayHi();
 	return (0);
 }
