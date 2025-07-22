@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phone_Book.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 21:36:15 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/06/05 02:48:59 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/07/22 21:12:53 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	print_contact(Contact contact1)
 {
-	std::cout << contact1.name << "\n";
-	std::cout << contact1.surname << "\n";
-	std::cout << contact1.nickname << "\n";
-	std::cout << contact1.phone << "\n";
-	std::cout << contact1.secret << "\n";
+	std::cout << contact1.name << std::endl;
+	std::cout << contact1.surname << std::endl;
+	std::cout << contact1.nickname << std::endl;
+	std::cout << contact1.phone << std::endl;
+	std::cout << contact1.secret << std::endl;
 }
 
 void	add_before(PhoneBook& book, Contact contact, int len)
@@ -29,20 +29,19 @@ void	add_before(PhoneBook& book, Contact contact, int len)
 	}
 	else
 	{
-		
+
 		int i = len--;
 		while (i > 0)
 		{
 			i--;
 		}
-		
+
 	}
 }
 
 void	add_contact(PhoneBook& book, int *len)
 {
 	Contact contact;
-	int i = 0;
 
 	std::cout << "first name: ";
 	std::cin >> contact.name;
@@ -54,17 +53,17 @@ void	add_contact(PhoneBook& book, int *len)
 	std::cin >> contact.phone;
 	std::cout << "secret: ";
 	std::cin >> contact.secret;
-	if (*len != 8)
+	if (*len < 8)
 	{
 		add_before(book, contact, *len);
-		*len++;
+		len++;
 	}
 	else
 	{
 		//remove_add_before();
 	}
-	
-	
+
+
 	book.str[0] = contact;
 	//print_contact(book.str[0]);
 }
