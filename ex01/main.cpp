@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 21:36:15 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/07/28 21:10:44 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/07/28 21:14:09 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,8 @@ std::string	format_cell(std::string str)
 
 void	display_contact(PhoneBook book, int index)
 {
-	std::string tab[10];
-	std::cout
 	// << "|" << format_cell(std::itoa(index))
+	std::cout
 	<< "|" << format_cell(book.str[index].name)
 	<< "|" << format_cell(book.str[index].name)
 	<< "|" << format_cell(book.str[index].surname)
@@ -143,6 +142,7 @@ void	search_contact(PhoneBook book)
 	std::cout << "|-------------------------------------------|" << std::endl;
 	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
 	std::cout << "|----------|----------|----------|----------|" << std::endl;
+	display_contact(book, index);
 }
 
 int	main(void)
