@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 21:36:15 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/07/28 03:50:23 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/07/28 19:55:58 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,58 @@ void	add_contact(PhoneBook& book)
 		remove_add(book, contact);
 }
 
+std::string	format_cell(std::string str)
+{
+	int			len;
+	std::string	result(10, ' ');
+
+	len = strlen(str.c_str());
+	if (len > 10)
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			result[i] = str[i];
+		}
+		result[9] = '.';
+		result[10] = '\0';
+	}
+	else if (len == 10)
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			result[i] = str[i];
+		}
+		result[10] = '\0';
+	}
+	else
+	{
+		int spaces = 10 - len;
+		int i = 0;
+		while (i < spaces)
+		{
+			result[i++] = ' ';
+		}
+		while (i < 10)
+		{
+			result[i++] = str[i];
+		}
+		result[10] = '\0';
+	}
+	return (result);
+}
+
+void	display_contact(PhoneBook book, int index)
+{
+	std::string tab[10];
+	std::cout
+	<< "|" << format_cell(std::to_string(index))
+	<< "|" << format_cell(book.str[index].name)
+	<< "|" << format_cell(book.str[index].surname)
+	<< "|" << format_cell(book.str[index].nickname)
+	<< "|" << std::endl;
+
+}
+
 void	search_contact(PhoneBook book)
 {
 	std::string	input;
@@ -91,8 +143,6 @@ void	search_contact(PhoneBook book)
 
 	std::cout << "|" << "----------" << "|" << "----------" << "|" << "----------" <<  "|" << "----------" << "|" << std::endl;
 	std::cout << "|" << "     Index" << "|" << "      Name" << "|" << "   Surname" <<  "|" << "  Nickname" << "|" << std::endl;
-	std::cout << "|" << "         " << index << "|" << "----------" << "|" << "----------" <<  "|" << "----------" << "|" << std::endl;
-	std::cout << index << std::endl;
 }
 
 int	main(void)
