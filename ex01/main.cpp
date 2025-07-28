@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 21:36:15 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/07/28 19:55:58 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/07/28 21:10:44 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ std::string	format_cell(std::string str)
 	int			len;
 	std::string	result(10, ' ');
 
-	len = strlen(str.c_str());
+	len = str.length();
 	if (len > 10)
 	{
 		for (int i = 0; i < 10; i++)
@@ -80,7 +80,6 @@ std::string	format_cell(std::string str)
 			result[i] = str[i];
 		}
 		result[9] = '.';
-		result[10] = '\0';
 	}
 	else if (len == 10)
 	{
@@ -88,7 +87,6 @@ std::string	format_cell(std::string str)
 		{
 			result[i] = str[i];
 		}
-		result[10] = '\0';
 	}
 	else
 	{
@@ -100,9 +98,9 @@ std::string	format_cell(std::string str)
 		}
 		while (i < 10)
 		{
-			result[i++] = str[i];
+			result[i] = str[i];
+			i++;
 		}
-		result[10] = '\0';
 	}
 	return (result);
 }
@@ -111,12 +109,13 @@ void	display_contact(PhoneBook book, int index)
 {
 	std::string tab[10];
 	std::cout
-	<< "|" << format_cell(std::to_string(index))
+	// << "|" << format_cell(std::itoa(index))
+	<< "|" << format_cell(book.str[index].name)
 	<< "|" << format_cell(book.str[index].name)
 	<< "|" << format_cell(book.str[index].surname)
 	<< "|" << format_cell(book.str[index].nickname)
 	<< "|" << std::endl;
-
+	std::cout << "|----------|----------|----------|----------|" << std::endl;
 }
 
 void	search_contact(PhoneBook book)
@@ -141,8 +140,9 @@ void	search_contact(PhoneBook book)
 		return ;
 	}
 
-	std::cout << "|" << "----------" << "|" << "----------" << "|" << "----------" <<  "|" << "----------" << "|" << std::endl;
-	std::cout << "|" << "     Index" << "|" << "      Name" << "|" << "   Surname" <<  "|" << "  Nickname" << "|" << std::endl;
+	std::cout << "|-------------------------------------------|" << std::endl;
+	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
+	std::cout << "|----------|----------|----------|----------|" << std::endl;
 }
 
 int	main(void)
