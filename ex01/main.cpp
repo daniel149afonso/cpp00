@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 21:36:15 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/07/28 21:14:09 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/07/29 15:30:44 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,16 +90,18 @@ std::string	format_cell(std::string str)
 	}
 	else
 	{
-		int spaces = 10 - len;
-		int i = 0;
+		int	spaces = 10 - len;
+		int	i = 0;
+		int	j = 0;
 		while (i < spaces)
 		{
 			result[i++] = ' ';
 		}
-		while (i < 10)
+		while (j < len)
 		{
-			result[i] = str[i];
+			result[i] = str[j];
 			i++;
+			j++;
 		}
 	}
 	return (result);
@@ -107,9 +109,8 @@ std::string	format_cell(std::string str)
 
 void	display_contact(PhoneBook book, int index)
 {
-	// << "|" << format_cell(std::itoa(index))
 	std::cout
-	<< "|" << format_cell(book.str[index].name)
+	<< "|" << "         " << index
 	<< "|" << format_cell(book.str[index].name)
 	<< "|" << format_cell(book.str[index].surname)
 	<< "|" << format_cell(book.str[index].nickname)
@@ -150,20 +151,19 @@ int	main(void)
 	
 	PhoneBook book;
 	book.len = 0;
-	std::string add = "ADD";
-	std::string search = "SEARCH";
-	std::string exit = "EXIT";
+	bool	running = true;
 	std::string input;
 
-	std::cout << "Welcome, you can use [ADD], [SEARCH] and [EXIT]."<< std::endl << std::endl;
-	while (1)
+	std::cout << "Welcome, you can use [ADD], [SEARCH] and [EXIT]:"<< std::endl << std::endl;
+	while (running && std::getline(std::cin, input))
 	{
-		std::cin >> input;
-		if (input == add)
+		 if (!std::getline(std::cin, input))
+			break ;
+		if (input.compare("ADD") == 0)
 			add_contact(book);
-		if (input == search)
+		else if (input.compare("SEARCH") == 0)
 			search_contact(book);
-		if (input == "debug")
+		else if (input == "debug")
 		{
 			std::cout << "value debug: " << book.len << std::endl;
 			for (int i = 0; i < book.len; i++)
@@ -172,8 +172,12 @@ int	main(void)
 				print_contact(book.str[i]);
 			}
 		}
-		if (input == exit)
-			break ;
+		else if (input.compare("EXIT") == 0)
+		{
+			running = false;
+		}
+		else
+			std::cout << "Please enter only [ADD], [SEARCH] or [EXIT]" << std::endl;
 	}
 	return (0);
 }
