@@ -6,11 +6,21 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 21:36:15 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/07/29 15:30:44 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/07/29 20:18:09 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+int	is_space(std::string input)
+{
+	for (int i = 0; input[i]; i++)
+	{
+		if (!isspace(input[i]))
+			return (0);
+	}
+	return (1);
+}
 
 void	print_contact(Contact contact1)
 {
@@ -41,23 +51,38 @@ void	remove_add(PhoneBook& book, Contact contact)
 	book.str[5] = book.str[6];
 	book.str[6] = book.str[7];
 	book.str[7] = contact;
+	std::cout << "The phone book is full. We removed the last contact."
+	<< std::endl;
 }
 
 void	add_contact(PhoneBook& book)
 {
 	Contact contact;
 
-	std::cout << "first name: ";
-	std::cin >> contact.name;
-	std::cout << "surname: ";
-	std::cin >> contact.surname;
-	std::cout << "nickname: ";
-	std::cin >> contact.nickname;
-	std::cout << "phone: ";
-	std::cin >> contact.phone;
-	std::cout << "secret: ";
-	std::cin >> contact.secret;
-
+	while (true)
+	{
+		std::cout << "first name: ";
+		std::getline(std::cin, contact.name);
+		if (contact.name.empty() || is_space(contact.name))
+			continue ;
+		std::cout << "surname: ";
+		std::getline(std::cin, contact.surname);
+		if (contact.surname.empty() || is_space(contact.surname))
+			continue ;
+		std::cout << "nickname: ";
+		std::getline(std::cin, contact.nickname);
+		if (contact.nickname.empty() || is_space(contact.nickname))
+			continue ;
+		std::cout << "phone: ";
+		std::getline(std::cin, contact.phone);
+		if (contact.phone.empty() || is_space(contact.phone))
+			continue ;
+		std::cout << "secret: ";
+		std::getline(std::cin, contact.secret);
+		if (contact.secret.empty() || is_space(contact.secret))
+			continue ;
+		break ;
+	}
 	if (book.len < 8)
 	{
 		add(book, contact);
@@ -65,6 +90,8 @@ void	add_contact(PhoneBook& book)
 	}
 	else
 		remove_add(book, contact);
+	std::cout << "You have successfully added a new contact!"
+	<< std::endl;
 }
 
 std::string	format_cell(std::string str)
@@ -124,12 +151,12 @@ void	search_contact(PhoneBook book)
 	int			index;
 
 	std::cout << "Choose your contact index: " << std::endl;
-	std::cin >> input;
+	std::getline(std::cin, input);
 	for (int i = 0; input[i]; i++)
 	{
 		if (!isdigit(input[i]))
 		{
-			std::cout << "Please enter numeric characters." << std::endl;
+			std::cout << "Please enter numeric characters (without space)." << std::endl;
 			return ;
 		}
 	}
@@ -139,7 +166,6 @@ void	search_contact(PhoneBook book)
 		std::cout << "The index " << index << " does not exist." << std::endl;
 		return ;
 	}
-
 	std::cout << "|-------------------------------------------|" << std::endl;
 	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
 	std::cout << "|----------|----------|----------|----------|" << std::endl;
@@ -149,16 +175,14 @@ void	search_contact(PhoneBook book)
 int	main(void)
 {
 	
-	PhoneBook book;
-	book.len = 0;
-	bool	running = true;
-	std::string input;
+	PhoneBook	book;
+	bool		running = true;
+	std::string	input;
 
-	std::cout << "Welcome, you can use [ADD], [SEARCH] and [EXIT]:"<< std::endl << std::endl;
+	book.len = 0;
+	std::cout << "Welcome my friend, you can use [ADD], [SEARCH] and [EXIT]:"<< std::endl << std::endl;
 	while (running && std::getline(std::cin, input))
 	{
-		 if (!std::getline(std::cin, input))
-			break ;
 		if (input.compare("ADD") == 0)
 			add_contact(book);
 		else if (input.compare("SEARCH") == 0)
@@ -173,8 +197,9 @@ int	main(void)
 			}
 		}
 		else if (input.compare("EXIT") == 0)
-		{
+		{	
 			running = false;
+			std::cout << "Thanks for all, goodbye!"<< std::endl;
 		}
 		else
 			std::cout << "Please enter only [ADD], [SEARCH] or [EXIT]" << std::endl;
