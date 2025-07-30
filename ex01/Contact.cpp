@@ -1,26 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/28 02:15:07 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/07/29 23:02:48 by daniel149af      ###   ########.fr       */
+/*   Created: 2025/07/30 15:26:51 by daniel149af       #+#    #+#             */
+/*   Updated: 2025/07/30 15:26:52 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
-# include "PhoneBook.hpp"
-
-class Contact {
-	public:
-	std::string name;
-	std::string surname;
-	std::string nickname;
-	std::string phone;
-	std::string secret;
-};
-
-#endif
