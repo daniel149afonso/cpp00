@@ -9,7 +9,6 @@ INCLUDES = Contact.hpp \
 # FICHIERS
 SRCS = main.cpp \
 	PhoneBook.cpp \
-	Contact.cpp \
 	search.cpp
 
 OBJS = $(SRCS:.cpp=.o)
