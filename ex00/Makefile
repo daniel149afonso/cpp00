@@ -1,15 +1,9 @@
 # ================== VARIABLES ==================
 # Nom de l'exécutable
-NAME = phoneBook
-
-# HEADERS
-INCLUDES = Contact.hpp \
-		PhoneBook.hpp
+NAME = megaphone
 
 # FICHIERS
-SRCS = main.cpp \
-	PhoneBook.cpp \
-	search.cpp
+SRCS = megaphone.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
