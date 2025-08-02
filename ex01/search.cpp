@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 18:57:43 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/08/03 00:01:47 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/08/03 00:32:50 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,16 @@ void	PhoneBook::get_informations()
 	int			index;
 
 	std::cout << "Choose your contact index (size: "<< this->len <<"): " << std::endl;
-	do
+	while (true)
 	{
-		std::getline(std::cin, input);
-	} while (input.empty());
-	
+		if (!std::getline(std::cin, input))
+		{
+			std::cout << "\nYou pressed ^D. Exiting…\n";
+			std::exit(0);
+		}
+		if (!input.empty())
+			break ;
+	}
 	if (std::cin.eof() == true)
 	{
 		std::cout << "\nYou have pressed ^D. Exiting…" << std::endl;
