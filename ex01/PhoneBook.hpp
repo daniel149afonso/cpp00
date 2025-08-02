@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 19:31:21 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/07/31 00:16:40 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/08/02 18:25:37 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,18 @@
 # define END		"\033[0m"
 
 class PhoneBook {
+	
+	private:
+		Contact	contacts[8];
 	public:
 		int		len;
-		Contact	contacts[8];
 
 	public:
 		void	set_informations(void);
 		void	get_informations(void);
 		void	add_contact(Contact& contact);
 		void	remove_and_add(Contact& contact);
-		
+		void	display_contact(int index);
 };
 
 #endif

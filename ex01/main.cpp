@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 21:36:15 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/07/31 00:44:56 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/08/02 18:09:07 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(void)
 		if (input.compare("ADD") == 0)
 			book.set_informations();
 		else if (input.compare("SEARCH") == 0)
-			search_contact(book);
+			book.get_informations();
 		else if (input.compare("EXIT") == 0)
 		{	
 			running = false;

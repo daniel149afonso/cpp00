@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 18:57:43 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/07/31 00:45:02 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/08/02 18:13:34 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,18 @@ std::string	format_cell(std::string str)
 	return (result);
 }
 
-void	display_contact(PhoneBook book, int index)
+void	PhoneBook::display_contact(int index)
 {
 	std::cout
 	<< "|" << "         " << index
-	<< "|" << format_cell(book.contacts[index].name)
-	<< "|" << format_cell(book.contacts[index].surname)
-	<< "|" << format_cell(book.contacts[index].nickname)
+	<< "|" << format_cell(this->contacts[index].name)
+	<< "|" << format_cell(this->contacts[index].surname)
+	<< "|" << format_cell(this->contacts[index].nickname)
 	<< "|" << std::endl;
 	std::cout << "|----------|----------|----------|----------|" << std::endl;
 }
 
-void	search_contact(PhoneBook book)
+void	PhoneBook::get_informations()
 {
 	std::string	input;
 	int			index;
@@ -84,8 +84,8 @@ void	search_contact(PhoneBook book)
 			return ;
 		}
 	}
-	index = atoi(input.c_str());
-	if (index >= book.len || index < 0)
+	index = std::atoi(input.c_str());
+	if (index >= this->len || index < 0)
 	{
 		std::cout << RED "The index " << index << " does not exist." END << std::endl;
 		return ;
@@ -93,10 +93,5 @@ void	search_contact(PhoneBook book)
 	std::cout << "|-------------------------------------------|" << std::endl;
 	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
 	std::cout << "|----------|----------|----------|----------|" << std::endl;
-	display_contact(book, index);
-}
-
-void	PhoneBook::get_informations()
-{
-	
+	display_contact(index);
 }
