@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 18:57:43 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/08/02 18:13:34 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/08/03 00:01:47 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,12 @@ void	PhoneBook::get_informations()
 	std::string	input;
 	int			index;
 
-	std::cout << "Choose your contact index :" << std::endl;
-	std::getline(std::cin, input);
+	std::cout << "Choose your contact index (size: "<< this->len <<"): " << std::endl;
+	do
+	{
+		std::getline(std::cin, input);
+	} while (input.empty());
+	
 	if (std::cin.eof() == true)
 	{
 		std::cout << "\nYou have pressed ^D. Exiting…" << std::endl;
@@ -80,7 +84,7 @@ void	PhoneBook::get_informations()
 	{
 		if (!isdigit(input[i]))
 		{
-			std::cout << RED "Please enter numeric characters (without space)." END << std::endl;
+			std::cout << RED "Please enter numeric characters." END << std::endl;
 			return ;
 		}
 	}
