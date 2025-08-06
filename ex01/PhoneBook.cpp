@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 15:26:31 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/07/31 00:27:33 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/08/06 20:10:04 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,58 @@ int	is_space(std::string input)
 	return (1);
 }
 
+void	check_numeric(bool *isNumeric, std::string tmp)
+{
+	for (int i = 0; tmp[i]; i++)
+	{
+		if (!std::isdigit(tmp[i]))
+		{
+			*isNumeric = false;
+			break ;
+		}	
+	}
+}
+
+void	check_alpha(bool *isAlpha, std::string tmp)
+{
+	for (int i = 0; tmp[i]; i++)
+	{
+		if (!std::isalpha(tmp[i]))
+		{
+			*isAlpha = false;
+			break ;
+		}	
+	}
+}
+
 std::string promptNonEmpty(const std::string& label)
 {
-	std::string tmp;
+	std::string input;
 	while (true) {
 		std::cout << label;
-		if (!std::getline(std::cin, tmp)) {
+		if (!std::getline(std::cin, input)) {
 			std::cout << "\nYou pressed ^D. Exiting…\n";
 			std::exit(0);
 		}
-		if (!tmp.empty() && !is_space(tmp))
-			return (tmp);
+		if (input.empty() || is_space(input))
+		{
+			std::cout << RED "Wrong format\n" END;
+			continue ;
+		}
+		bool isAlpha = true;
+		bool isNumeric = true;
+		if (label.find("phone") != std::string::npos)	
+			check_numeric(&isNumeric, input);
+		else if(label.find("phone") != std::string::npos)	
+			check_numeric(&isNumeric, input);
+		else
+			check_alpha(&isAlpha, input);
+		if (isAlpha == false || isNumeric == false)
+		{
+			std::cout << RED "Wrong format\n" END;
+			continue ;
+		}
+		return (input);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 18:57:43 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/08/03 00:32:50 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/08/06 20:19:46 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,6 @@ void	PhoneBook::get_informations()
 		}
 		if (!input.empty())
 			break ;
-	}
-	if (std::cin.eof() == true)
-	{
-		std::cout << "\nYou have pressed ^D. Exiting…" << std::endl;
-		std::exit(0);
 	}
 	for (int i = 0; input[i]; i++)
 	{
