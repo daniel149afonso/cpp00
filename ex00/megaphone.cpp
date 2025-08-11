@@ -3,43 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 21:02:38 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/07/22 19:38:16 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/08/11 23:28:43 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-void	ft_uppercase(char **argv)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	while (argv[i])
-	{
-		j = 0;
-		while (argv[i][j])
-		{
-			if (argv[i][j] >= 'a' && argv[i][j] <= 'z')
-				argv[i][j] = argv[i][j] - 32;
-			j++;
-		}
-		std::cout << argv[i];
-		i++;
-		if (argv[i])
-			std::cout << " ";
-	}
-	std::cout << std::endl;
-}
-
 int	main(int argc, char **argv)
-{
-	if (argc == 1)
+{ 
+	const char	*str = "Hello";
+	std::string foo = str;
+	(void)foo;
+	if (argc <= 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
 	else
-		ft_uppercase(argv);
+	{
+		for (int i = 1; i < argc; i++)
+		{
+			std::string result = argv[i];
+			for (int j = 0; j < (int)result.size(); j++)
+			{
+				std::cout << (char)std::toupper(result[j]);
+			}
+			if (argv[i + 1])
+				std::cout << " ";
+		}
+		std::cout << std::endl;
+	}
 	return (0);
 }
