@@ -10,7 +10,7 @@ SEARCH: Display a contact informations by index
 
 EXIT: exit the program
 
-output example:
+Output example:
 |-------------------------------------------|
 |     Index|First Name| Last Name|  Nickname|
 |----------|----------|----------|----------|
