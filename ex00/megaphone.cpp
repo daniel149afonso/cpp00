@@ -6,17 +6,14 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 21:02:38 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/08/11 23:28:43 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/08/13 17:54:46 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
 int	main(int argc, char **argv)
-{ 
-	const char	*str = "Hello";
-	std::string foo = str;
-	(void)foo;
+{
 	if (argc <= 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
 	else
