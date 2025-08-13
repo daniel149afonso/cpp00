@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 19:31:21 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/08/13 03:46:21 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/08/13 14:24:01 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class PhoneBook {
 		void	add_contact(Contact& contact);
 		void	remove_and_add(Contact& contact);
 		void	display_contact(int index);
+		void	display_all_contacts(void);
 };
 
 #endif

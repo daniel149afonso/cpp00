@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 18:57:43 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/08/13 04:03:08 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/08/13 14:28:06 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,12 @@ void	PhoneBook::display_contact(int index)
 	std::cout << "|----------|----------|----------|----------|" << std::endl;
 }
 
-void	PhoneBook::get_informations()
+void	PhoneBook::get_informations(void)
 {
 	std::string	input;
 	int			index;
 
+	display_all_contacts();
 	std::cout << "Choose your contact index (size: "<< this->len <<"): " << std::endl;
 	while (true)
 	{
@@ -100,4 +101,16 @@ void	PhoneBook::get_informations()
 	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
 	std::cout << "|----------|----------|----------|----------|" << std::endl;
 	display_contact(index);
+}
+
+void	PhoneBook::display_all_contacts()
+{
+	std::cout << "|-------------------------------------------|" << std::endl;
+	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
+	std::cout << "|----------|----------|----------|----------|" << std::endl;
+	for (int i = 0; i < this->len; i++)
+	{
+		display_contact(i);
+	}
+	
 }

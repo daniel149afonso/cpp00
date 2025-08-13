@@ -6,13 +6,13 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 18:19:00 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/08/12 19:57:14 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/08/13 14:28:32 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-void	Contact::set_contact()
+void	Contact::set_contact(void)
 {
 	this->name     = promptNonEmpty("first name: ");
 	this->surname  = promptNonEmpty("surname:    ");
