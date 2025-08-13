@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 19:31:21 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/08/06 19:46:07 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/08/13 03:46:21 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,15 @@
 # include <stdlib.h>
 # include <string.h>
 # include "Contact.hpp"
-# define RED	"\033[0;31m"
-# define GREEN	"\033[0;32m"
-# define END		"\033[0m"
 
 class PhoneBook {
 	
 	private:
 		Contact	contacts[8];
+		int	len;
 	public:
-		int		len;
-
-	public:
+		PhoneBook(void);
+		~PhoneBook(void);
 		void	set_informations(void);
 		void	get_informations(void);
 		void	add_contact(Contact& contact);

@@ -2,14 +2,12 @@
 # Nom de l'exécutable
 NAME = phoneBook
 
-# HEADERS
-INCLUDES = Contact.hpp \
-		PhoneBook.hpp
-
 # FICHIERS
 SRCS = main.cpp \
+	Contact.cpp \
 	PhoneBook.cpp \
-	search.cpp
+	search.cpp \
+	utils.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

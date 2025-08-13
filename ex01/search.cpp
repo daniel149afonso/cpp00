@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 18:57:43 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/08/06 20:19:46 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/08/13 04:03:08 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,11 @@ void	PhoneBook::display_contact(int index)
 {
 	std::cout
 	<< "|" << "         " << index
-	<< "|" << format_cell(this->contacts[index].name)
-	<< "|" << format_cell(this->contacts[index].surname)
-	<< "|" << format_cell(this->contacts[index].nickname)
+	<< "|" << format_cell(this->contacts[index].get_value("name"))
+	<< "|" << format_cell(this->contacts[index].get_value("surname"))
+	<< "|" << format_cell(this->contacts[index].get_value("nickname"))
+	<< "|" << format_cell(this->contacts[index].get_value("phone"))
+	<< "|" << format_cell(this->contacts[index].get_value("secret"))
 	<< "|" << std::endl;
 	std::cout << "|----------|----------|----------|----------|" << std::endl;
 }
