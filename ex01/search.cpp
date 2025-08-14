@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   search.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 18:57:43 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/08/13 15:59:23 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/08/14 16:55:53 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void PhoneBook::get_informations(void)
 	}
 	for (int i = 0; input[i]; i++)
 	{
-		if (!isdigit(input[i]))
+		if (!std::isdigit(input[i]))
 		{
 			std::cout << RED "Please enter numeric characters." END << std::endl;
 			return;
@@ -107,8 +107,6 @@ void PhoneBook::get_informations(void)
 		std::cout << RED "The index " << index << " does not exist." END << std::endl;
 		return;
 	}
-
-	// 3️⃣ On affiche maintenant toutes les infos du contact choisi
 	std::cout << "\n--- Contact Details ---\n";
 	display_contact_full(index);
 }

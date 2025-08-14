@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 19:31:21 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/08/13 15:38:25 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/08/14 16:54:06 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "Contact.hpp"
 
 class PhoneBook {
-	
+
 	private:
 		Contact	contacts[8];
 		int	len;

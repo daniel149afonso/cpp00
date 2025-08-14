@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 15:26:31 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/08/13 03:50:29 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/08/14 16:57:45 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ PhoneBook::PhoneBook():len(0)
 
 PhoneBook::~PhoneBook(void)
 {
-	return ;
+
 }
 
 void PhoneBook::add_contact(Contact& contact)

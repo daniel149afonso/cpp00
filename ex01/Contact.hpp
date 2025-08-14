@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 02:15:07 by daniel149af       #+#    #+#             */
-/*   Updated: 2025/08/12 20:26:43 by daniel149af      ###   ########.fr       */
+/*   Updated: 2025/08/14 16:32:51 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Contact {
 		std::string phone;
 		std::string secret;
 	public:
-		void	set_contact(void);
+		void set_contact(void);
 		std::string get_value(std::string field);
 };
 
